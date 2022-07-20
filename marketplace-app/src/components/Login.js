@@ -1,15 +1,28 @@
 import React, { useState } from "react";
-
-export default function Login({ setUsername }) {
+import { checkValidUsername } from "../api";
+export default function Login({ username, setUsername }) {
   const [text, setText] = useState("");
+
+  console.log(username, "<---before submit");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setUsername(text);
+    console.log(text);
+
+    console.log(username, "<----in login"); // why username is not updating here
+
+    checkValidUsername(text).then((user) => {
+      //after username is updated change text to username
+      if (user) return <p>User Already exit</p>;
+    });
     setText("");
   };
+
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label>Username: </label>
         <input
           type="text"
@@ -19,7 +32,9 @@ export default function Login({ setUsername }) {
             setText(e.target.value);
           }}
         ></input>
-        <button>Login</button>
+        <button type="submit" onClick={handleSubmit}>
+          Login
+        </button>
       </form>
     </div>
   );

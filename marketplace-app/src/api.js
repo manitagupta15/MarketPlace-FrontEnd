@@ -16,3 +16,12 @@ exports.postNewUser = (username, url) => {
       return err;
     });
 };
+
+exports.checkValidUsername = (username) => {
+  const path = axios.create({
+    baseURL: "https://nc-marketplace-api-ma.herokuapp.com/api",
+  });
+  return path.get(`/users/${username}`).then(({ data: { user } }) => {
+    return user.username;
+  });
+};

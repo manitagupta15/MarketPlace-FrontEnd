@@ -8,14 +8,18 @@ import Signup from "./components/Signup";
 
 function App() {
   const [username, setUsername] = useState("");
-  console.log(username);
+
+  console.log(username, "<---from app");
   return (
     <BrowserRouter>
       <div className="App">
         <Title />
         <Navigation />
         <Routes>
-          <Route path="/" element={<Login setUsername={setUsername} />} />
+          <Route
+            path="/"
+            element={<Login username={username} setUsername={setUsername} />}
+          />
           <Route path="/signup" element={<Signup />} />
         </Routes>
       </div>

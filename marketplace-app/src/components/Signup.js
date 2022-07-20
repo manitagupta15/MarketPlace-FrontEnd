@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { postNewUser } from "../api";
+import Login from "./Login";
+import { Link } from "react-router-dom";
 
 export default function Signup() {
   const [nameText, setNameText] = useState("");
@@ -7,15 +9,16 @@ export default function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postNewUser(nameText, url).then((resp) => {
-      console.log(resp);
+    
+    postNewUser(nameText, url).then(() => {
+      console.log("hello");
     });
   };
 
   return (
     <div>
       <p>Haven't registered yet? Signup below</p>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label>Username: </label>
         <input
           type="text"
@@ -34,7 +37,9 @@ export default function Signup() {
             setUrl(e.target.value);
           }}
         ></input>
-        <button>Submit</button>
+        <button type="submit" onClick={handleSubmit}>
+          <Link to="/"> Submit</Link>
+        </button>
       </form>
     </div>
   );
