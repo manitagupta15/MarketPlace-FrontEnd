@@ -1,0 +1,11 @@
+import { Link } from "react-router-dom";
+import React from "react";
+
+export default function Navigation() {
+  return (
+    <div>
+      <Link to="/">Login</Link>
+      <Link to="/signup">Signup</Link>
+    </div>
+  );
+}

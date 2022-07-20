@@ -1,10 +1,25 @@
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import "./App.css";
+import Login from "./components/Login";
+import Title from "./components/Title";
+import Navigation from "./components/Navigation";
+import Signup from "./components/Signup";
 
 function App() {
+  const [username, setUsername] = useState("");
+  console.log(username);
   return (
-    <div className="App">
-     App
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Title />
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Login setUsername={setUsername} />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
