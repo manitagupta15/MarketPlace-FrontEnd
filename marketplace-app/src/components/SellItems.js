@@ -1,17 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { postItem } from "../api";
+import { userNameContext } from "../Context/context";
 
-export default function List({ username }) {
+export default function SellItems() {
+  const { username } = useContext(userNameContext);
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
+
   const [postedItem, setPostedItem] = useState({});
 
   const [postObj, setPostObj] = useState({});
+  const [show, setShow] = useState(false);
 
   const handleSubmit = (e) => {
+    setShow(false);
     e.preventDefault();
     const newObj = {};
     newObj.item_name = name;
@@ -20,13 +26,11 @@ export default function List({ username }) {
     newObj.category_name = category;
     newObj.price = price;
     setPostObj(newObj);
-  };
-
-  useEffect(() => {
-    postItem(postObj).then((postedItem) => {
+    postItem(newObj).then((postedItem) => {
       setPostedItem(postedItem);
+      setShow(true);
     });
-  }, [postObj]);
+  };
 
   return (
     <div>
@@ -36,7 +40,7 @@ export default function List({ username }) {
         <label>
           Item Name:{" "}
           <input
-            id="name"
+            value={name}
             onChange={(e) => {
               setName(e.target.value);
             }}
@@ -45,7 +49,7 @@ export default function List({ username }) {
         <label>
           Description:{" "}
           <input
-            id="description"
+            value={description}
             onChange={(e) => {
               setDescription(e.target.value);
             }}
@@ -54,7 +58,7 @@ export default function List({ username }) {
         <label>
           Image URL:{" "}
           <input
-            id="img_url"
+            value={url}
             onChange={(e) => {
               setUrl(e.target.value);
             }}
@@ -63,7 +67,7 @@ export default function List({ username }) {
         <label>
           Price:{" "}
           <input
-            id="price"
+            value={price}
             onChange={(e) => {
               setPrice(e.target.value);
             }}
@@ -72,7 +76,7 @@ export default function List({ username }) {
         <label>
           Category Name:{" "}
           <input
-            id="category"
+            value={category}
             onChange={(e) => {
               setCategory(e.target.value);
             }}
@@ -80,6 +84,11 @@ export default function List({ username }) {
         </label>
         <button type="submit">Sell</button>
       </form>
+      {show === true ? (
+        <p>{postedItem.item_name} posted successfully!</p>
+      ) : (
+        <p></p>
+      )}
     </div>
   );
 }

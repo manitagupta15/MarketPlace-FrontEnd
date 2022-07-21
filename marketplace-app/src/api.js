@@ -43,3 +43,13 @@ exports.fetchUsers = () => {
     return users;
   });
 };
+
+
+exports.postItem = (objToPost) => {
+   const path = axios.create({
+     baseURL: "https://nc-marketplace-api-ma.herokuapp.com/api",
+   });
+  return path.post("/items", objToPost).then((res) => {
+    return res.data.item;
+  });
+};

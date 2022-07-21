@@ -12,6 +12,7 @@ import Categories from "./components/Categories";
 import Items from "./components/Items";
 
 import { userNameContext } from "./Context/context";
+import SellItems from "./components/SellItems";
 
 function App() {
   const [username, setUsername] = useState("Alexandra14");
@@ -32,6 +33,7 @@ function App() {
               element={<Categories items={items} setItems={setItems} />}
             />
             <Route path="/items" element={<Items items={items} />} />
+            <Route path="/sell" element={<SellItems />} />
           </Routes>
         </div>
       </userNameContext.Provider>
