@@ -1,12 +1,26 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import PlaceOrder from "./PlaceOrder";
 
 export default function Basket({ basketItems, setBasketItems }) {
   function handleDelete(e) {
     const newArr = basketItems.filter((item) => +item.item_id !== +e.target.id);
     setBasketItems(newArr);
   }
+  const navigate = useNavigate();
+  const handleOrder = () => {
+    navigate("/placeorder");
+  };
   return (
     <div>
+      <hr />
+      {basketItems.length !== 0 ? (
+        <button id="order-btn" onClick={handleOrder}>
+          Place Order
+        </button>
+      ) : (
+        <p></p>
+      )}
       {basketItems.map((item) => {
         return (
           <article key={item.item_id}>

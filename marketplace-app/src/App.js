@@ -13,6 +13,7 @@ import Categories from "./components/Categories";
 import { userNameContext } from "./Context/context";
 import SellItems from "./components/SellItems";
 import Basket from "./components/Basket";
+import PlaceOrder from "./components/PlaceOrder";
 
 function App() {
   const [username, setUsername] = useState("Alexandra14");
@@ -34,6 +35,7 @@ function App() {
             />
             <Route path="/sell" element={<SellItems />} />
             <Route path="/basket" element={<Basket basketItems={basketItems} setBasketItems={setBasketItems}/>} />
+            <Route path="/placeorder" element={<PlaceOrder basketItems={basketItems}/>} />
           </Routes>
         </div>
       </userNameContext.Provider>
