@@ -44,12 +44,20 @@ exports.fetchUsers = () => {
   });
 };
 
-
 exports.postItem = (objToPost) => {
-   const path = axios.create({
-     baseURL: "https://nc-marketplace-api-ma.herokuapp.com/api",
-   });
+  const path = axios.create({
+    baseURL: "https://nc-marketplace-api-ma.herokuapp.com/api",
+  });
   return path.post("/items", objToPost).then((res) => {
     return res.data.item;
+  });
+};
+
+exports.deleteItemById = (id) => {
+  const path = axios.create({
+    baseURL: "https://nc-marketplace-api-ma.herokuapp.com/api",
+  });
+  return path.delete(`/items/${id}`).then(() => {
+    return;
   });
 };
