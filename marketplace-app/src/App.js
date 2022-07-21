@@ -33,7 +33,7 @@ function App() {
               element={<Categories items={items} setItems={setItems} setBasketItems={setBasketItems} />}
             />
             <Route path="/sell" element={<SellItems />} />
-            <Route path="/basket" element={<Basket basketItems={basketItems}/>} />
+            <Route path="/basket" element={<Basket basketItems={basketItems} setBasketItems={setBasketItems}/>} />
           </Routes>
         </div>
       </userNameContext.Provider>
