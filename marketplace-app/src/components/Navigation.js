@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useContext } from "react";
 import { userNameContext } from "../Context/context";
 
-export default function Navigation({ itemIdState }) {
+export default function Navigation() {
   const { username } = useContext(userNameContext);
   return (
     <div>
@@ -10,7 +10,6 @@ export default function Navigation({ itemIdState }) {
       <Link to="/">Change User </Link>
       <Link to="/signup">Signup</Link>
       <Link to="/sell">Sell</Link>
-      <Link to={`/delete/${itemIdState}`}>Delete</Link>
     </div>
   );
 }
