@@ -10,6 +10,7 @@ export default function Navigation() {
       <Link to="/">Change User </Link>
       <Link to="/signup">Signup</Link>
       <Link to="/sell">Sell</Link>
+      <Link to="/basket">Basket</Link>
     </div>
   );
 }

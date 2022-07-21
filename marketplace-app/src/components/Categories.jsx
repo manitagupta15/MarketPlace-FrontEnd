@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { deleteItemById, fetchItems } from "../api";
+import { deleteItemById, fetchItemById, fetchItems } from "../api";
+import Basket from "./Basket";
 
-export default function Categories({ items, setItems }) {
-  const navigate = useNavigate();
+export default function Categories({ items, setItems, setBasketItems }) {
   const [dropDown, setDropdown] = useState("");
 
   useEffect(() => {
@@ -28,6 +28,21 @@ export default function Categories({ items, setItems }) {
   const handleDelete = (e) => {
     deleteItemById(+e.target.id).then(() => {
       window.location.reload();
+    });
+  };
+
+  const handleAdditionToBasket = (e) => {
+    const newObj = {};
+    fetchItemById(+e.target.id).then((item) => {
+      newObj.item_id = item.item_id;
+      newObj.item_name = item.item_name;
+      newObj.description = item.description;
+      newObj.category_name = item.category_name;
+      newObj.img_url = item.img_url;
+      newObj.price = item.price;
+    });
+    setBasketItems((currItems) => {
+      return [...currItems, newObj];
     });
   };
 
@@ -58,6 +73,9 @@ export default function Categories({ items, setItems }) {
             <p>category name : {item.category_name}</p>
             <button id={item.item_id} onClick={handleDelete}>
               Delete
+            </button>
+            <button id={item.item_id} onClick={handleAdditionToBasket}>
+              Add to Basket
             </button>
           </article>
         );

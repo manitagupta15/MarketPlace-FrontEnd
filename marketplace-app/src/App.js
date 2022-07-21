@@ -12,10 +12,12 @@ import Categories from "./components/Categories";
 
 import { userNameContext } from "./Context/context";
 import SellItems from "./components/SellItems";
+import Basket from "./components/Basket";
 
 function App() {
   const [username, setUsername] = useState("Alexandra14");
   const [items, setItems] = useState([]);
+  const [basketItems, setBasketItems] = useState([]);
 
   return (
     <BrowserRouter>
@@ -28,9 +30,10 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route
               path="/categories"
-              element={<Categories items={items} setItems={setItems} />}
+              element={<Categories items={items} setItems={setItems} setBasketItems={setBasketItems} />}
             />
             <Route path="/sell" element={<SellItems />} />
+            <Route path="/basket" element={<Basket basketItems={basketItems}/>} />
           </Routes>
         </div>
       </userNameContext.Provider>

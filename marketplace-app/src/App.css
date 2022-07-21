@@ -4,3 +4,13 @@
 .user-avatar{
   height:200px
 }
+
+img {
+  height: 150px;
+}
+li {
+  list-style: none;
+}
+button {
+  cursor: pointer;
+}

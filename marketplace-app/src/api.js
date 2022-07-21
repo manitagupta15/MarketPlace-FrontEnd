@@ -61,3 +61,12 @@ exports.deleteItemById = (id) => {
     return;
   });
 };
+
+exports.fetchItemById = (id) => {
+  const path = axios.create({
+    baseURL: "https://nc-marketplace-api-ma.herokuapp.com/api",
+  });
+  return path.get(`/items/${id}`).then((resp) => {
+    return resp.data.item;
+  });
+};
