@@ -35,7 +35,7 @@ function App() {
             />
             <Route path="/sell" element={<SellItems />} />
             <Route path="/basket" element={<Basket basketItems={basketItems} setBasketItems={setBasketItems}/>} />
-            <Route path="/placeorder" element={<PlaceOrder basketItems={basketItems}/>} />
+            <Route path="/placeorder" element={<PlaceOrder basketItems={basketItems} setBasketItems={setBasketItems}/>} />
           </Routes>
         </div>
       </userNameContext.Provider>

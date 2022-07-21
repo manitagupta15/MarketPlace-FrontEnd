@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import PlaceOrder from "./PlaceOrder";
 
 export default function Basket({ basketItems, setBasketItems }) {
   function handleDelete(e) {
@@ -9,7 +8,7 @@ export default function Basket({ basketItems, setBasketItems }) {
   }
   const navigate = useNavigate();
   const handleOrder = () => {
-    navigate("/placeorder");
+      navigate("/placeorder");
   };
   return (
     <div>

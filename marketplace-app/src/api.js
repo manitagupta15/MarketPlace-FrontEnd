@@ -70,3 +70,12 @@ exports.fetchItemById = (id) => {
     return resp.data.item;
   });
 };
+
+exports.postOrderByUsername = (username, postObj) => {
+  const path = axios.create({
+    baseURL: "https://nc-marketplace-api-ma.herokuapp.com/api",
+  });
+  return path.post(`/users/${username}/orders`, postObj).then((resp) => {
+    return resp.data.item;
+  });
+};
