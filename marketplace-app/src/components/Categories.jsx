@@ -24,7 +24,6 @@ export default function Categories({ items, setItems }) {
 
       setItems(filteredItems);
 
-      //navigate("/items");
     });
   };
 
