@@ -14,3 +14,14 @@ ul {
 button {
   cursor: pointer;
 }
+#nav-bar {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 25px;
+  margin: 8px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}

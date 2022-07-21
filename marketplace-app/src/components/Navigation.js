@@ -7,10 +7,14 @@ export default function Navigation() {
   return (
     <div>
       <p>Hello {username}</p>
-      <Link to="/">Change User </Link>
-      <Link to="/signup">Signup</Link>
-      <Link to="/sell">Sell</Link>
-      <Link to="/basket">Basket</Link>
+      <nav id="nav-bar">
+        <Link to="/">Change User </Link>
+        <Link to="/signup"> Signup</Link>
+        <Link to="/categories">Categories</Link>
+        <Link to="/sell"> Sell</Link>
+        <Link to="/basket"> Basket</Link>
+        <Link to="/previousorders"> Orders</Link>
+      </nav>
     </div>
   );
 }
