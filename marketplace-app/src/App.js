@@ -1,28 +1,40 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import { useState } from "react";
+
 import "./App.css";
+
 import Login from "./components/Login";
 import Title from "./components/Title";
 import Navigation from "./components/Navigation";
 import Signup from "./components/Signup";
+import Categories from "./components/Categories";
+import Items from "./components/Items";
+
+import { userNameContext } from "./Context/context";
 
 function App() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("Alexandra14");
+  const [items, setItems] = useState([]);
 
-  console.log(username, "<---from app");
   return (
     <BrowserRouter>
-      <div className="App">
-        <Title />
-        <Navigation />
-        <Routes>
-          <Route
-            path="/"
-            element={<Login username={username} setUsername={setUsername} />}
-          />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-      </div>
+      <userNameContext.Provider value={{ username, setUsername }}>
+        <div className="App">
+          <Title />
+          <Navigation />
+          <Routes>
+            {/* <Route path="/" element={<Navigation />} /> */}
+            <Route path="/" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route
+              path="/categories"
+              element={<Categories setItems={setItems} />}
+            />
+            <Route path="/items" element={<Items items={items} />} />
+          </Routes>
+        </div>
+      </userNameContext.Provider>
     </BrowserRouter>
   );
 }

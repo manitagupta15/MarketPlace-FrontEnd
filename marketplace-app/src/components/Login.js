@@ -1,41 +1,42 @@
-import React, { useState } from "react";
-import { checkValidUsername } from "../api";
-export default function Login({ username, setUsername }) {
-  const [text, setText] = useState("");
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchUsers } from "../api";
+import { userNameContext } from "../Context/context";
 
-  console.log(username, "<---before submit");
+export default function Login() {
+  const [users, setUsers] = useState([]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const { setUsername } = useContext(userNameContext);
+  const navigate = useNavigate();
 
-    setUsername(text);
-    console.log(text);
-
-    console.log(username, "<----in login"); // why username is not updating here
-
-    checkValidUsername(text).then((user) => {
-      //after username is updated change text to username
-      if (user) return <p>User Already exit</p>;
+  useEffect(() => {
+    fetchUsers().then((resultUsers) => {
+      setUsers(resultUsers);
     });
-    setText("");
-  };
+  }, []);
 
   return (
     <div>
-      <form>
-        <label>Username: </label>
-        <input
-          type="text"
-          name={text}
-          value={text}
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-        ></input>
-        <button type="submit" onClick={handleSubmit}>
-          Login
-        </button>
-      </form>
+      {users.map((user) => {
+        return (
+          <li key={user.username}>
+            UserName : {user.username} Avatar:{" "}
+            <img
+              className="user-avatar"
+              src={user.avatar_url}
+              alt="your avatar"
+            />
+            <button
+              onClick={() => {
+                setUsername(user.username);
+                navigate("/categories");
+              }}
+            >
+              Submit
+            </button>
+          </li>
+        );
+      })}
     </div>
   );
 }
