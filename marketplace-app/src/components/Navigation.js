@@ -9,6 +9,7 @@ export default function Navigation() {
       <p>Hello {username}</p>
       <Link to="/">Change User </Link>
       <Link to="/signup">Signup</Link>
+      <Link to="/sell">Sell</Link>
     </div>
   );
 }

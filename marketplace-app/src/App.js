@@ -29,7 +29,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route
               path="/categories"
-              element={<Categories setItems={setItems} />}
+              element={<Categories items={items} setItems={setItems} />}
             />
             <Route path="/items" element={<Items items={items} />} />
           </Routes>

@@ -1,13 +1,22 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchItems } from "../api";
+import Items from "./Items";
 
-export default function Categories({ setItems }) {
+export default function Categories({ items, setItems }) {
   const navigate = useNavigate();
   const [dropDown, setDropdown] = useState("");
 
+  useEffect(() => {
+    fetchItems().then((items) => {
+      setItems(items);
+    });
+  }, []);
+
   const handleChange = (e) => {
     e.preventDefault();
+    
     fetchItems().then((returnItems) => {
       const filteredItems = returnItems.filter((item) => {
         return item.category_name === dropDown;
@@ -15,7 +24,7 @@ export default function Categories({ setItems }) {
 
       setItems(filteredItems);
 
-      navigate("/items");
+      //navigate("/items");
     });
   };
 
@@ -34,6 +43,7 @@ export default function Categories({ setItems }) {
         </select>
         <button>Submit</button>
       </form>
+      <Items items={items}/>
     </div>
   );
 }
