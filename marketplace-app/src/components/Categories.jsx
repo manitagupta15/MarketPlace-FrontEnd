@@ -57,7 +57,7 @@ export default function Categories({ items, setItems, setBasketItems }) {
           <option value="">Choose your Option</option>
           <option value="Electronics">&#8986;Electronics</option>
           <option value="Clothing">&#129509;Clothing</option>
-          <option value="Household">&#127996;Household</option>
+          <option value="Household">&#128716;Household</option>
         </select>
         <button>Submit</button>
       </form>
@@ -65,13 +65,13 @@ export default function Categories({ items, setItems, setBasketItems }) {
         return (
           <article key={item.item_id}>
             <hr />
-            <p> item Id: {item.item_id}</p>
-            <p> item Name: {item.item_name}</p>
-            <p>description : {item.description}</p>
+            <p>Item Id: {item.item_id}</p>
+            <p>Item Name: {item.item_name}</p>
+            <p>Description: {item.description}</p>
             <img className="user-avatar" src={item.img_url} alt="item" />
-            <p>price : {item.price}</p>
+            <p>Price: £{item.price}</p>
 
-            <p>category name : {item.category_name}</p>
+            <p>Category: {item.category_name}</p>
             <button id={item.item_id} onClick={handleDelete}>
               Delete
             </button>

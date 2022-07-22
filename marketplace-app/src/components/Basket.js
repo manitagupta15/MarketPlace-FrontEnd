@@ -27,7 +27,7 @@ export default function Basket({ basketItems, setBasketItems }) {
             <p>Name: {item.item_name}</p>
             <p>Description: {item.description}</p>
             <img src={item.img_url} alt="item"></img>
-            <p>Price: {item.price}</p>
+            <p>Price: £{item.price}</p>
             <p>Category: {item.category_name}</p>
             <button id={item.item_id} onClick={handleDelete}>
               Remove From Basket

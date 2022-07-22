@@ -71,7 +71,7 @@ export default function SellItems() {
           ></input>
         </label>
         <label>
-          Price:
+          Price: £
           <input
             value={price}
             onChange={(e) => {
@@ -89,7 +89,7 @@ export default function SellItems() {
             <option value="">Choose your Option</option>
             <option value="Electronics">&#8986;Electronics</option>
             <option value="Clothing">&#129509;Clothing</option>
-            <option value="Household">&#127996;Household</option>
+            <option value="Household">&#128716;Household</option>
           </select>
         </label>
         <button type="submit">Sell</button>

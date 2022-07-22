@@ -35,7 +35,7 @@ export default function PlaceOrder({ basketItems, setBasketItems }) {
       {basketItems.length === 0 ? (
         <p></p>
       ) : (
-        <h4>Total Price: {total}&#9786;</h4>
+        <h4>Total Price: £{total} &#128183; 💰</h4>
       )}
     </div>
   );
