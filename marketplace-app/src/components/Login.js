@@ -5,6 +5,7 @@ import { userNameContext } from "../Context/context";
 
 export default function Login() {
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { setUsername } = useContext(userNameContext);
   const navigate = useNavigate();
@@ -12,8 +13,11 @@ export default function Login() {
   useEffect(() => {
     fetchUsers().then((resultUsers) => {
       setUsers(resultUsers);
+      setIsLoading(false);
     });
   }, []);
+
+  if (isLoading) return <p>loading...</p>;
 
   return (
     <div>
