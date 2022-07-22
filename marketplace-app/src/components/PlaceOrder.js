@@ -1,4 +1,6 @@
-import React, { useContext, useState } from "react";
+import { countBy } from "lodash";
+
+import React, { useContext } from "react";
 import { postOrderByUsername } from "../api";
 import { userNameContext } from "../Context/context";
 
@@ -13,19 +15,22 @@ export default function PlaceOrder({ basketItems, setBasketItems }) {
 
   return (
     <div>
-      <ol>
+      <table class="auto-index">
+        <tr>
+          <th>Serial no.</th> <th>Item name</th>
+          <th>Price</th>
+        </tr>
+
         {basketItems.map((item) => {
           return (
-            <article key={item.item_id}>
-              <hr />
-              <li>
-                <p>{item.item_name}</p>
-                <p>{item.price}</p>
-              </li>
-            </article>
+            <tr key={item.item_id}>
+              <td>{countBy}</td>
+              <td>{item.item_name}</td>
+              <td>{item.price}</td>
+            </tr>
           );
         })}
-      </ol>
+      </table>
       <hr />
       {basketItems.length === 0 ? <p></p> : <h4>Total Price: {total}</h4>}
     </div>

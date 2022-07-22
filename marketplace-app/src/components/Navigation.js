@@ -7,6 +7,7 @@ export default function Navigation() {
   return (
     <div>
       <p>Hello {username}</p>
+      <hr></hr>
       <nav id="nav-bar">
         <Link to="/">Change User </Link>
         <Link to="/signup"> Signup</Link>
@@ -15,6 +16,7 @@ export default function Navigation() {
         <Link to="/basket"> Basket</Link>
         <Link to="/previousorders"> Orders</Link>
       </nav>
+      <hr></hr>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import { countBy } from "lodash";
+
 import React, { useContext, useState } from "react";
 import { getOrdersByUsername } from "../api";
 import { userNameContext } from "../Context/context";
@@ -13,17 +15,21 @@ export default function Previousorders() {
 
   return (
     <div>
-      <table>
+      <p>Previous Orders</p>
+      <table class="auto-index">
         <tr>
-          <th>Order Name</th>
+          <th>Serial no.</th>
+          <th>Item name</th>
         </tr>
-        <tr>
-          <td>
-            {previousOrders.map((order) => {
-              return <p key={order.item_name}>{order.item_name}</p>;
-            })}
-          </td>
-        </tr>
+
+        {previousOrders.map((order) => {
+          return (
+            <tr>
+              <td>{countBy}</td>
+              <td>{order.item_name}</td>
+            </tr>
+          );
+        })}
       </table>
     </div>
   );

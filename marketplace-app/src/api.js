@@ -79,15 +79,14 @@ exports.getOrdersByUsername = (username) => {
   });
 };
 
-exports.patchUserKudos = (kudoUser) => {
-  console.log("username ->", kudoUser);
+exports.patchUserKudos = (kudoUser, count) => {
   const path = axios.create({
     baseURL: "https://nc-marketplace-api-ma.herokuapp.com/api",
   });
-  return path
-    .patch(`/users/${kudoUser}`, { kudos_inc: 1 })
-    .then((resp) => {
-      console.log(resp.data.user, "<--- updated");
-      return resp.data.user;
-    });
+
+  const input = { kudos_inc: +count };
+
+  return path.patch(`/users/${kudoUser}`, input).then((resp) => {
+    return resp.data.user;
+  });
 };

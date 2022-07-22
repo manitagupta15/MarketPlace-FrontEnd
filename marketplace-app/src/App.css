@@ -1,5 +1,11 @@
+body {
+  background-color: orange;
+  counter-reset: Serial;
+}
 .App {
   text-align: center;
+  font-size: 2rem;
+  margin: 2rem;
 }
 .user-avatar {
   height: 200px;
@@ -25,6 +31,45 @@ a {
   text-decoration: none;
   color: black;
 }
-.thumsUp {
-  padding-right: 2rem;
+
+
+.auto-index td:first-child:before {
+  counter-increment: Serial; /* Increment the Serial counter */
+  content: counter(Serial); /* Display the counter */
+}
+
+table {
+  border-style: solid;
+  width: 100%;
+}
+
+tr,
+th,
+td,
+table {
+  border-style: solid;
+  border-collapse: collapse;
+}
+hr {
+  background-color: red;
+  height: 0.5rem;
+  border-color: red;
+}
+
+input,
+select {
+  width: 20rem;
+  height: 2.75rem;
+  margin: 2rem;
+  padding-left: 0.45rem;
+  font-size: 26px;
+  border-radius: 10px;
+}
+
+button {
+  cursor: pointer;
+  font-size: 2rem;
+  border-radius: 50px;
+  padding: 1rem;
+  margin: 0.5rem;
 }
