@@ -5,7 +5,7 @@ import { userNameContext } from "../Context/context";
 
 export default function Login() {
   const [users, setUsers] = useState([]);
-  const [kudos, setKudos] = useState();
+  const [kudos, setKudos] = useState(0);
   const [kudoUserName, setKudoUserName] = useState("");
 
   const [isLoading, setIsLoading] = useState(true);
@@ -20,15 +20,11 @@ export default function Login() {
     });
   }, []);
 
-  if (isLoading) return <p>loading...</p>;
+  useEffect(() => {
+    patchUserKudos(kudoUserName);
+  }, [kudoUserName, kudos]);
 
-  const handleKudo = (e) => {
-    setKudos((currentkuddos) => {
-      return currentkuddos + 1;
-    });
-    // console.log(kudoUserName);
-    //  patchUserKudos(kudos, kudoUserName);
-  };
+  if (isLoading) return <p>loading...</p>;
 
   return (
     <div>
@@ -41,19 +37,13 @@ export default function Login() {
               src={user.avatar_url}
               alt="your avatar"
             />
-            <p
-              value={kudos}
-              // onChange={(e) => {
-              //   setKudos(e.target.value);
-              //   setKudoUserName(user.username);
-              // }}
-            >
-              Kudos:{user.kudos}
-            </p>
+            <p>Kudos:{user.kudos}</p>
             <p>
               <button
-                onClick={(e) => {
-                  setKudos(4);
+                onClick={() => {
+                  console.log(user.kudos);
+                  setKudos((user.kudos += 1));
+                  setKudoUserName(user.username);
                 }}
               >
                 <i className="thumbsUp">&#128077;</i>

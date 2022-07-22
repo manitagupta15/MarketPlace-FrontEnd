@@ -8,7 +8,7 @@ export default function Basket({ basketItems, setBasketItems }) {
   }
   const navigate = useNavigate();
   const handleOrder = () => {
-      navigate("/placeorder");
+    navigate("/placeorder");
   };
   return (
     <div>

@@ -1,14 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { postOrderByUsername } from "../api";
 import { userNameContext } from "../Context/context";
 
-export default function PlaceOrder({ basketItems }) {
-  const {username} = useContext(userNameContext);
+export default function PlaceOrder({ basketItems, setBasketItems }) {
+  const { username } = useContext(userNameContext);
+
   let total = 0;
   basketItems.forEach((item) => {
     total += item.price;
     postOrderByUsername(username, { item_id: item.item_id });
   });
+
   return (
     <div>
       <ol>
