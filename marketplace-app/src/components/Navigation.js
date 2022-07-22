@@ -7,7 +7,7 @@ export default function Navigation() {
   return (
     <div>
       <h2>
-        Welcome <p className="name">{username} </p>
+        Welcome <span className="name">{username} </span>
       </h2>
 
       <hr></hr>
