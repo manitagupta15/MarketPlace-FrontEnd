@@ -24,12 +24,12 @@ export default function Basket({ basketItems, setBasketItems }) {
         return (
           <article key={item.item_id}>
             <hr />
-            <li>{item.item_id}</li>
-            <li>{item.item_name}</li>
-            <li>{item.description}</li>
+            <p>Item Id: {item.item_id}</p>
+            <p>Name: {item.item_name}</p>
+            <p>Description: {item.description}</p>
             <img src={item.img_url} alt="item"></img>
-            <li>{item.price}</li>
-            <li>{item.category_name}</li>
+            <p>Price: {item.price}</p>
+            <p>Category: {item.category_name}</p>
             <button id={item.item_id} onClick={handleDelete}>
               Remove From Basket
             </button>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { postItem } from "../api";
 import { userNameContext } from "../Context/context";
 
@@ -30,6 +30,12 @@ export default function SellItems() {
       setPostedItem(postedItem);
       setShow(true);
     });
+
+    setName("");
+    setDescription("");
+    setUrl("");
+    setCategory("");
+    setPrice(0);
   };
 
   return (
@@ -47,7 +53,7 @@ export default function SellItems() {
           ></input>
         </label>
         <label>
-          Description:{" "}
+          Description:
           <input
             value={description}
             onChange={(e) => {
@@ -56,7 +62,7 @@ export default function SellItems() {
           ></input>
         </label>
         <label>
-          Image URL:{" "}
+          Image URL:
           <input
             value={url}
             onChange={(e) => {
@@ -65,7 +71,7 @@ export default function SellItems() {
           ></input>
         </label>
         <label>
-          Price:{" "}
+          Price:
           <input
             value={price}
             onChange={(e) => {
@@ -74,13 +80,17 @@ export default function SellItems() {
           ></input>
         </label>
         <label>
-          Category Name:{" "}
-          <input
-            value={category}
+          Category Name:
+          <select
             onChange={(e) => {
               setCategory(e.target.value);
             }}
-          ></input>
+          >
+            <option value="">Choose your Option</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Household">Household</option>
+          </select>
         </label>
         <button type="submit">Sell</button>
       </form>

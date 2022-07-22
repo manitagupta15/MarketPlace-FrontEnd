@@ -70,6 +70,7 @@ export default function Categories({ items, setItems, setBasketItems }) {
             <p>description : {item.description}</p>
             <img className="user-avatar" src={item.img_url} alt="item" />
             <p>price : {item.price}</p>
+
             <p>category name : {item.category_name}</p>
             <button id={item.item_id} onClick={handleDelete}>
               Delete
