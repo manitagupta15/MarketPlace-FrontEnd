@@ -55,9 +55,9 @@ export default function Categories({ items, setItems, setBasketItems }) {
           }}
         >
           <option value="">Choose your Option</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Clothing">Clothing</option>
-          <option value="Household">Household</option>
+          <option value="Electronics">&#8986;Electronics</option>
+          <option value="Clothing">&#129509;Clothing</option>
+          <option value="Household">&#127996;Household</option>
         </select>
         <button>Submit</button>
       </form>

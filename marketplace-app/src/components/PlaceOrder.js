@@ -32,7 +32,11 @@ export default function PlaceOrder({ basketItems, setBasketItems }) {
         })}
       </table>
       <hr />
-      {basketItems.length === 0 ? <p></p> : <h4>Total Price: {total}</h4>}
+      {basketItems.length === 0 ? (
+        <p></p>
+      ) : (
+        <h4>Total Price: {total}&#9786;</h4>
+      )}
     </div>
   );
 }

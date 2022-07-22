@@ -12,13 +12,12 @@ export default function Basket({ basketItems, setBasketItems }) {
   };
   return (
     <div>
-      <hr />
       {basketItems.length !== 0 ? (
         <button id="order-btn" onClick={handleOrder}>
           Place Order
         </button>
       ) : (
-        <p></p>
+        <p>Please Add items to your baskets...</p>
       )}
       {basketItems.map((item) => {
         return (

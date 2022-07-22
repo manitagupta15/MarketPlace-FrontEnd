@@ -27,11 +27,16 @@ button {
   padding: 25px;
   margin: 8px;
 }
+
 a {
   text-decoration: none;
   color: black;
+  font-family: "Special Elite", cursive;
 }
-
+a:hover {
+  color: blue;
+  background-color: deeppink;
+}
 
 .auto-index td:first-child:before {
   counter-increment: Serial; /* Increment the Serial counter */
@@ -72,4 +77,41 @@ button {
   border-radius: 50px;
   padding: 1rem;
   margin: 0.5rem;
+}
+h1 {
+  background-color: greenyellow;
+  padding: 2rem;
+  font-family: "Rampart One", cursive;
+}
+.name {
+  font-family: "Sacramento", cursive;
+  color: blue;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+h2 {
+  font-family: "Special Elite", cursive;
+
+  color: purple;
+}
+.previous-orders {
+  font-family: "Special Elite", cursive;
+  color: rgb(80, 27, 193);
+  font-style: italic;
+  font-size: 3rem;
+}
+
+button {
+  background-color:lavenderblush;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }

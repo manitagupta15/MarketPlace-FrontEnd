@@ -13,9 +13,11 @@ export default function Previousorders() {
     setPreviousOrders(prevOrder);
   });
 
+  if (previousOrders.length === 0) return <p>No Previous Orders...</p>;
+
   return (
     <div>
-      <p>Previous Orders</p>
+      <p className="previous-orders">Previous Orders</p>
       <table class="auto-index">
         <tr>
           <th>Serial no.</th>
