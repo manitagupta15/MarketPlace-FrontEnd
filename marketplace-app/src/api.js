@@ -17,16 +17,6 @@ exports.postNewUser = (username, url) => {
     });
 };
 
-// exports.fetchUsername = (username) => {
-//   const path = axios.create({
-//     baseURL: "https://nc-marketplace-api-ma.herokuapp.com/api",
-//   });
-//   return path.get(`/users/${username}`).then(({ data: { user } }) => {
-//     console.log(user, "<---user");
-//     return user;
-//   });
-// };
-
 exports.fetchItems = () => {
   const path = axios.create({
     baseURL: "https://nc-marketplace-api-ma.herokuapp.com/api",
@@ -86,5 +76,17 @@ exports.getOrdersByUsername = (username) => {
   });
   return path.get(`/users/${username}/orders`).then((resp) => {
     return resp.data.items;
+  });
+};
+
+exports.patchUserKudos = (kudos, kudoUser) => {
+  console.log(kudos, "<---kudos");
+  console.log(kudoUser, "<---kudosusername");
+  const path = axios.create({
+    baseURL: "https://nc-marketplace-api-ma.herokuapp.com/api",
+  });
+  return path.patch(`/api/users/${kudoUser}`, kudos).then((resp) => {
+    console.log(resp.data.user, "<--- updated");
+    return resp.data.user;
   });
 };
