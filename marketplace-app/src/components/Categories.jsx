@@ -1,17 +1,15 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { deleteItemById, fetchItemById, fetchItems } from "../api";
-import Basket from "./Basket";
 
 export default function Categories({ items, setItems, setBasketItems }) {
   const [dropDown, setDropdown] = useState("");
 
   useEffect(() => {
-    fetchItems().then((items) => {
-      setItems(items);
+    fetchItems().then((item) => {
+      setItems(item);
     });
-  }, []);
+  }, [setItems]);
 
   const handleChange = (e) => {
     e.preventDefault();
